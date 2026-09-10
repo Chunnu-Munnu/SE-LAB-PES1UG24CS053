@@ -74,11 +74,8 @@ SE-LAB-PES1UG24CS053/
 ├── LAB-3/
 │   ├── Component-Diagram/
 │   │   ├── PES1UG24CS053_Lab3_Component_Diagram.drawio   (editable source)
-│   │   ├── PES1UG24CS053_Lab3_Component_Diagram.png
-│   │   ├── PES1UG24CS053_Lab3_Component_Diagram.pdf
-│   │   └── PES1UG24CS053_Lab3_Component_Diagram.svg
+│   │   └── PES1UG24CS053_Lab3_Component_Diagram.pdf
 │   ├── Justification/
-│   │   ├── PES1UG24CS053_Lab3_Justification.docx
 │   │   └── PES1UG24CS053_Lab3_Justification.pdf
 │   └── Lab_3_Architecture_Student_handout.pdf
 │
