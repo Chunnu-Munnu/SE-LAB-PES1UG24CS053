@@ -25,6 +25,7 @@ repository builds on this same problem statement.
 | Lab-1 | Requirements Engineering & UML Use-Case Modelling | Requirements table, use-case diagram, use-case flow |
 | LAB-2 | Agile Project Planning — Epics, User Stories & Sprint Board | Jira board export (epics, stories, story points) |
 | LAB-3 | Component Modelling & Architectural Pattern Selection | Component diagram + written architecture justification |
+| Lab-4 | VibeCoding — AI-assisted debugging & feature development | Before/after gameplay videos, updated code, chat history PDF |
 
 ## Lab-3 — Component Modelling & Architectural Pattern Selection
 
@@ -55,6 +56,30 @@ owning its own data store and reachable only through a published interface.
 | `IObjectStore` | Media Object Store | Asset & Watermarking Service | S3 object API |
 | `INotifyChannel` | Email / Push Provider (external) | Notification Service | SMTP / FCM |
 
+## Lab-4 — VibeCoding
+
+**Assigned repo:** [SETAPESU26/53_arm_wrestle](https://github.com/SETAPESU26/53_arm_wrestle) — *Arm Wrestle Showdown*, a Pygame button-mashing game.
+
+An AI assistant (Claude) was used as a pair-programming partner to fix the broken code and add the
+features listed in the game's README, in 5 prompts.
+
+| Task | Change |
+| --- | --- |
+| 1 — Inverted arm push bug | Player input now subtracts from `arm_position` (`-= 4.2`), pushing the arm toward the player's win at −100 |
+| 2 — AI surge / difficulty spikes | AI cycles through **BUILDING → SURGE (~2.5× force, 1–2 s) → EXHAUSTED (~0.3× force, 1–2 s)**; current state shown under the COMPUTER label |
+| 3 / 4 — Exhaustion warning | Below 10 stamina the bar flashes red, an **EXHAUSTED!** label blinks and the player's arm trembles; input stays locked until stamina recovers to 30 |
+| Review fixes | Stamina regeneration lowered to 0.25/frame so exhaustion is reachable; `reset()` uses `max_stamina`; unused import removed |
+
+**Run it**
+
+```bash
+pip install pygame-ce   # or: pip install pygame (Python ≤ 3.13)
+cd Lab-4/Code
+python main.py
+```
+
+Controls: alternate **← / →** rapidly to push, **R** to rematch.
+
 ## Repository Structure
 
 ```
@@ -78,6 +103,18 @@ SE-LAB-PES1UG24CS053/
 │   ├── Justification/
 │   │   └── PES1UG24CS053_Lab3_Justification.pdf
 │   └── Lab_3_Architecture_Student_handout.pdf
+│
+├── Lab-4/
+│   ├── Code/
+│   │   ├── game/
+│   │   │   └── game_engine.py
+│   │   ├── main.py
+│   │   └── README.md
+│   ├── Videos/
+│   │   ├── before.mp4
+│   │   └── after.mp4
+│   └── Chat-History/
+│       └── PES1UG24CS053_Lab4_Chat_History.pdf
 │
 └── README.md
 ```
