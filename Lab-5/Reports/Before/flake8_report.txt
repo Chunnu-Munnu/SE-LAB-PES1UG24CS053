@@ -1,0 +1,10 @@
+parking_lot_system.py:4:1: F401 'math' imported but unused
+parking_lot_system.py:7:80: E501 line too long (82 > 79 characters)
+parking_lot_system.py:8:80: E501 line too long (83 > 79 characters)
+parking_lot_system.py:9:80: E501 line too long (82 > 79 characters)
+parking_lot_system.py:23:80: E501 line too long (131 > 79 characters)
+parking_lot_system.py:32:5: E722 do not use bare 'except'
+parking_lot_system.py:37:5: F841 local variable 'overtime_fee' is assigned to but never used
+parking_lot_system.py:38:35: E711 comparison to None should be 'if cond is None:'
+parking_lot_system.py:47:5: F841 local variable 'base_rate' is assigned to but never used
+parking_lot_system.py:88:7: W292 no newline at end of file
