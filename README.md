@@ -23,10 +23,43 @@ repository builds on this same problem statement.
 | Lab | Topic | Deliverables |
 | --- | --- | --- |
 | Lab-1 | Requirements Engineering & UML Use-Case Modelling | Requirements table, use-case diagram, use-case flow |
-| LAB-2 | Agile Project Planning — Epics, User Stories & Sprint Board | Jira board export (epics, stories, story points) |
+| LAB-2 | Agile Project Planning — Epics, User Stories & Sprint Board | Jira epics & user stories, Sprint 1 / Sprint 2 burndown charts, reflection answers |
 | LAB-3 | Component Modelling & Architectural Pattern Selection | Component diagram + written architecture justification |
 | Lab-4 | VibeCoding — AI-assisted debugging & feature development | Before/after gameplay videos, updated code, chat history PDF |
 | Lab-5 | Static Code Analysis — Pylint, Bandit & Flake8 | Cleaned script, before/after reports, issue table, reflection, PDF report |
+
+## Lab-1 — Requirements Engineering & UML Use-Case Modelling
+
+**Actors:** Content Creator, Client Sponsor, Payment Gateway (external system), Platform Admin.
+
+| Req ID | Requirement | Priority |
+| --- | --- | --- |
+| FR-001 | Creator submits a draft against a milestone; payment is released only after the sponsor's sign-off (SUBMITTED → APPROVED → PAID) | High |
+| FR-002 | Sponsor defines 1–20 milestones and must fully fund escrow before the contract becomes ACTIVE | High |
+| FR-003 | Drafts are shown only as watermarked previews; the original is blocked until the milestone is PAID | High |
+| FR-004 | Sponsor can reject a draft with a written reason; all previous versions are kept | Medium |
+| FR-005 | Either party can raise a dispute, which freezes the milestone's escrowed funds and alerts an admin | Medium |
+| NFR-001 | Watermarked preview ready in under 5 s (p95, 100 concurrent uploads up to 200 MB) | High |
+| NFR-002 | TLS 1.3 in transit, AES-256 at rest, append-only audit log for every escrow state change | High |
+
+**Use-case flow:** UC-04 *Release Milestone Payment* (primary actor: Client Sponsor). It has a 12-step main success scenario, «include» UC-08 *Authorize Escrow Transfer*, and an alternate flow for a declined or timed-out gateway transfer (rollback to SUBMITTED, retry with the same idempotency key, admin review after 3 failures).
+
+## LAB-2 — Agile Project Planning
+
+Jira board **FCCEP** (Freelance Content Creator Escrow Platform): 3 epics, 10 user stories, 42 story points.
+
+| Epic | User stories (story points) | Total |
+| --- | --- | --- |
+| FCCEP-1 Contract & Milestone Setup | 1.1 (5), 1.2 (3), 1.3 (5) | 13 |
+| FCCEP-2 Draft Submission & Review | 2.1 (5), 2.2 (8), 2.3 (3), 2.4 (3) | 19 |
+| FCCEP-3 Escrow Payment & Fund Release | 3.1 (5), 3.2 (3), 3.3 (2) | 10 |
+
+| Sprint | Focus | Story points (from burndown) |
+| --- | --- | --- |
+| Sprint 1 | Contract setup, escrow funding, draft upload | 26 |
+| Sprint 2 | Review, revision, payment release | 16 |
+
+The PDF contains the epics screenshot, a burndown chart for each sprint and answers to the four reflection questions.
 
 ## Lab-3 — Component Modelling & Architectural Pattern Selection
 
