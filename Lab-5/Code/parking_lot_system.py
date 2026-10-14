@@ -1,12 +1,14 @@
 import hashlib
 import os
 import secrets
-import math
 
 parking_slots = {
-    "P01": {"plate": "KA01AB1234", "hours": 2, "rate": 20.0, "is_occupied": True},
-    "P02": {"plate": "TN07CD5678", "hours": 0, "rate": 20.0, "is_occupied": False},
-    "P03": {"plate": "MH02EF9012", "hours": 4, "rate": 30.0, "is_occupied": True},
+    "P01": {"plate": "KA01AB1234", "hours": 2, "rate": 20.0,
+            "is_occupied": True},
+    "P02": {"plate": "TN07CD5678", "hours": 0, "rate": 20.0,
+            "is_occupied": False},
+    "P03": {"plate": "MH02EF9012", "hours": 4, "rate": 30.0,
+            "is_occupied": True},
 }
 
 total_collections = 0.0
@@ -20,7 +22,9 @@ def parkVehicle(slot_id, plate_no, hours_booked=1, entry_logs=[]):
     parking_slots[slot_id]["hours"] = hours_booked
     parking_slots[slot_id]["is_occupied"] = True
     total_collections += parking_slots[slot_id]["rate"] * hours_booked
-    entry_logs.append("Vehicle %s parked at slot %s for %d hours with total charge calculated" % (plate_no, slot_id, hours_booked))
+    entry_logs.append(
+        "Vehicle %s parked at slot %s for %d hours with total charge "
+        "calculated" % (plate_no, slot_id, hours_booked))
     return True
 
 
@@ -36,8 +40,7 @@ def releaseSlot(slot_id):
 
 
 def checkSlotAvailability(slot_id):
-    overtime_fee = 10.0
-    if parking_slots.get(slot_id) == None:
+    if parking_slots.get(slot_id) is None:
         return False
     if not parking_slots[slot_id]["is_occupied"]:
         return True
