@@ -27,6 +27,7 @@ repository builds on this same problem statement.
 | LAB-3 | Component Modelling & Architectural Pattern Selection | Component diagram + written architecture justification |
 | Lab-4 | VibeCoding — AI-assisted debugging & feature development | Before/after gameplay videos, updated code, chat history PDF |
 | Lab-5 | Static Code Analysis — Pylint, Bandit & Flake8 | Cleaned script, before/after reports, issue table, reflection, PDF report |
+| Lab-6 | Code & Branch Coverage Analysis | Code coverage tests (92%), branch coverage tests (100%), terminal screenshots |
 
 ## Lab-1 — Requirements Engineering & UML Use-Case Modelling
 
@@ -136,6 +137,27 @@ cd Lab-5/Code
 python parking_lot_system.py
 ```
 
+## Lab-6 — Code and Branch Coverage
+
+**Assigned repo:** [SETAPESU26/L6_L7_51_self_storage](https://github.com/SETAPESU26/L6_L7_51_self_storage) — `self_storage.py`, which calculates storage rent, checks access rules and reports payment status.
+
+The starter tests covered 32% of the code. Two test files were written, one per coverage type.
+
+| Run | Tests | Line coverage | Branch coverage |
+| --- | --- | --- | --- |
+| Starter `test_self_storage.py` | 2 | 32% | 6 branches partly covered |
+| `CodeCoverageTest_self_storage.py` | 14 | **92%** | 90% combined |
+| `BranchCoverageTest_self_storage.py` | 42 | **100%** | **100%** (26/26 branches) |
+
+See [`Lab-6/README.md`](Lab-6/README.md) for the commands and screenshots.
+
+```bash
+pip install coverage pytest
+cd Lab-6
+coverage run --branch -m pytest BranchCoverageTest_self_storage.py
+coverage report -m
+```
+
 ## Repository Structure
 
 ```
@@ -182,6 +204,16 @@ SE-LAB-PES1UG24CS053/
 │   │   └── PES1UG24CS053_Lab5_Report.pdf
 │   ├── issues.md
 │   ├── reflection.md
+│   └── README.md
+│
+├── Lab-6/
+│   ├── self_storage.py                      (module under test, unchanged)
+│   ├── test_self_storage.py                 (starter tests, unchanged)
+│   ├── CodeCoverageTest_self_storage.py
+│   ├── BranchCoverageTest_self_storage.py
+│   ├── Screenshots/
+│   │   ├── code_coverage.png
+│   │   └── branch_coverage.png
 │   └── README.md
 │
 └── README.md
